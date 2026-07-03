@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Authentication{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #1f2937;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            padding: 32px;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 28px;
+            color: #111827;
+        }
+
+        .subtitle {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #6b7280;
+        }
+
+        .notice {
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .notice.success {
+            background: #ecfdf3;
+            color: #047857;
+        }
+
+        .notice.error {
+            background: #fef2f2;
+            color: #b91c1c;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        input {
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+
+        button {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 11px 14px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+
+        .links {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            margin-top: 24px;
+        }
+
+        .dashboard-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 22px;
+            background: #f9fafb;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+        }
+
+        .dashboard-card h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #111827;
+        }
+
+        .dashboard-card p {
+            color: #4b5563;
+            margin-bottom: 16px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #4f46e5;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .button:hover {
+            background: #4338ca;
+        }
+
+        .api-list {
+            margin-top: 32px;
+            padding: 22px;
+            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+        }
+
+        .api-list h2 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .api-list ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .api-list li {
+            margin-bottom: 10px;
+            color: #4b5563;
+        }
+
+        .api-list code {
+            background: #f3f4f6;
+            padding: 3px 8px;
+            border-radius: 8px;
+            color: #111827;
+        }
+
+        .user-box {
+            margin-top: 22px;
+            padding: 16px 18px;
+            background: #eef2ff;
+            border: 1px solid #c7d2fe;
+            border-radius: 14px;
+            color: #3730a3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>{% block heading %}Authentication{% endblock %}</h1>
+        <p class="subtitle">{% block subtitle %}{% endblock %}</p>
+
+        {% if error_message %}
+            <div class="notice error">{{ error_message }}</div>
+        {% endif %}
+
+        {% if success_message %}
+            <div class="notice success">{{ success_message }}</div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

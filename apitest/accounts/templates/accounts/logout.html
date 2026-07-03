@@ -1,0 +1,17 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Logout{% endblock %}
+{% block heading %}Logout{% endblock %}
+{% block subtitle %}You are about to leave your session.{% endblock %}
+
+{% block content %}
+<form method="post" action="">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+
+<div class="links">
+    <a href="/api/auth/login/">Login again</a>
+    <a href="/api/auth/signup/">Create account</a>
+</div>
+{% endblock %}

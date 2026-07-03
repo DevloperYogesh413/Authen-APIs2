@@ -1,0 +1,29 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+{% block heading %}Sign Up{% endblock %}
+{% block subtitle %}Create your account to get started.{% endblock %}
+
+{% block content %}
+<form method="post" action="">
+    {% csrf_token %}
+    <label>
+        Username
+        <input type="text" name="username" placeholder="Enter username" required>
+    </label>
+    <label>
+        Email
+        <input type="email" name="email" placeholder="Enter email" required>
+    </label>
+    <label>
+        Password
+        <input type="password" name="password" placeholder="Create a password" required>
+    </label>
+    <button type="submit">Create Account</button>
+</form>
+
+<div class="links">
+    <a href="/api/auth/login/">Already have an account? Login</a>
+    <a href="/api/auth/reset-password/">Reset password</a>
+</div>
+{% endblock %}
