@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'apitest.wsgi.application'
+WSGI_APPLICATION = 'apitest.demo.wsgi.application'
 
 
 # Database
